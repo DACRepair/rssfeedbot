@@ -11,7 +11,7 @@ ENV POST_ONLY false
 ENV FEED_ONLY false
 
 WORKDIR /usr/src/rssfeedbot
-COPY * .
+COPY * /usr/src/rssfeedbot/
 
 RUN apk --no-cache add --virtual build postgresql-dev gcc python3-dev musl-dev \
     && pip install -r requirements.txt \
