@@ -15,6 +15,7 @@ COPY * .
 
 RUN apk --no-cache add --virtual build postgresql-dev gcc python3-dev musl-dev \
     && pip install -r requirements.txt \
-    && pip install psycopg2-binary
+    && pip install psycopg2-binary \
+    && apk del build
 
-CMD ./run.py
+CMD python3 ./run.py
