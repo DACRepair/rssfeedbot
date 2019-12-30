@@ -1,0 +1,4 @@
+discord-webhook
+feedparser
+requests
+sqlalchemy
