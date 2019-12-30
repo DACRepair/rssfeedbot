@@ -9,7 +9,6 @@ class Discord:
     def _create_embed(self, post: FeedEntry) -> DiscordEmbed:
         embed = DiscordEmbed()
         embed.set_title(post.title)
-        embed.set_author(name=post.author)
         if len(post.text) > 0:
             if len(post.text) > 2048:
                 text = post.text[0:2040] + "..."
@@ -19,8 +18,8 @@ class Discord:
         if post.thumb is not None:
             embed.set_thumbnail(url=post.thumb)
         if post.link is not None:
-            embed.set_url(post.link)
-        embed.add_embed_field(name="Post Link", value=post.post)
+            embed.set_url(post.post)
+        embed.add_embed_field(name="Link to Deal:", value=post.link)
         return embed
 
     def post_entries(self, entries: [FeedEntry]):
