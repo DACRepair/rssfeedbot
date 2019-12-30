@@ -11,7 +11,10 @@ ENV POST True
 ENV FEED True
 
 WORKDIR /usr/src/rssfeedbot
-COPY * /usr/src/rssfeedbot/
+COPY App/ /usr/src/rssfeedbot/App
+COPY run.py /usr/src/rssfeedbot/
+COPY requirements.txt /usr/src/rssfeedbot/
+
 
 RUN apk --no-cache add --virtual build postgresql-dev gcc python3-dev musl-dev \
     && pip install -r requirements.txt \
