@@ -7,8 +7,8 @@ ENV DB_URI sqlite///./test.db
 ENV FEED_LIMIT 100
 ENV REFRESH_TIME 100
 
-ENV POST_ONLY false
-ENV FEED_ONLY false
+ENV POST True
+ENV FEED True
 
 WORKDIR /usr/src/rssfeedbot
 COPY * /usr/src/rssfeedbot/
