@@ -19,6 +19,7 @@ COPY requirements.txt /usr/src/rssfeedbot/
 RUN apk --no-cache add --virtual build postgresql-dev gcc python3-dev musl-dev \
     && pip install -r requirements.txt \
     && pip install psycopg2-binary \
-    && apk del build
+    && apk del build \
+    && apk --no-cache add postgresql-lib
 
 CMD python3 ./run.py

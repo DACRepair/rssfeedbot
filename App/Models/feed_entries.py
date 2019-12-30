@@ -15,7 +15,7 @@ class FeedEntry(Base):
     posted_on = Column(DateTime, default=datetime.datetime.utcnow())
     text = Column(String(4096))
 
-    link = Column(String(255))
+    link = Column(String(2048))
     flair = Column(String(255))
     thumb = Column(String(255))
     sticky = Column(Boolean, default=False)
