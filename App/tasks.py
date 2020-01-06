@@ -22,7 +22,8 @@ def store_entries():
     ses = Session()
     reddit = Reddit(SUBREDDIT)
 
-    for entry in reddit.get_posts(FEED_LIMIT):
+    entries = reddit.get_posts(FEED_LIMIT)
+    for entry in entries:
         exists = ses.query(FeedEntry).filter(FeedEntry.post_id == entry.id).count() > 0
         if not exists and not entry.sticky:
             print("Stored: {}".format(entry))
