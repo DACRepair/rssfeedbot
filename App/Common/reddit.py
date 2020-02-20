@@ -46,7 +46,10 @@ class Reddit:
         try:
             req = self._session.get(self._url + "&limit={}".format(str(limit)))
             if req.status_code == 200:
-                return [RedditPost(x) for x in req.json()['data']['children']]
+                posts = [RedditPost(x) for x in req.json()['data']['children']]
+                if len(posts) == 0:
+                    raise ValueError("Pulled 0 posts.")
+                return posts
             else:
                 return None
         except:
