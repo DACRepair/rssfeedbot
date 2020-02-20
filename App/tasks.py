@@ -1,11 +1,11 @@
+import asyncio
+from time import sleep
+
 from App.Common.config import SUBREDDIT, FEED_LIMIT, WEBHOOK_URL, REFRESH_TIME
 from App.Common.discord import Discord
 from App.Common.reddit import Reddit
 from App.Common.storage import Session
 from App.Models import FeedEntry
-
-from time import sleep
-import asyncio
 
 app = asyncio.get_event_loop()
 

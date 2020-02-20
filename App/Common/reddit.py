@@ -1,6 +1,7 @@
-from requests import Session
 import datetime
 import html
+
+from requests import Session
 
 
 class RedditPost:
@@ -42,8 +43,11 @@ class Reddit:
                                       "User-Agent": "server:discord.hook.bot:v0 (by /u/DACRepair)"})
 
     def get_posts(self, limit: int = 25):
-        req = self._session.get(self._url + "&limit={}".format(str(limit)))
-        if req.status_code == 200:
-            return [RedditPost(x) for x in req.json()['data']['children']]
-        else:
-            return None
+        try:
+            req = self._session.get(self._url + "&limit={}".format(str(limit)))
+            if req.status_code == 200:
+                return [RedditPost(x) for x in req.json()['data']['children']]
+            else:
+                return None
+        except:
+            exit(1)

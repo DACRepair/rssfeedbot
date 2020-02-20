@@ -1,5 +1,5 @@
-from os import getenv as _getenv
 from os import getcwd as _getcwd
+from os import getenv as _getenv
 from os.path import normpath as _normpath
 
 SUBREDDIT: str = _getenv("SUBREDDIT", "")
