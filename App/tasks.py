@@ -1,7 +1,7 @@
 import asyncio
 from time import sleep
 
-from App.Common.config import SUBREDDIT, FEED_LIMIT, WEBHOOK_URL, REFRESH_TIME
+from App.Common.config import SUBREDDIT, FEED_LIMIT, WEBHOOK_URL, REFRESH_TIME, DIRTY
 from App.Common.discord import Discord
 from App.Common.reddit import Reddit
 from App.Common.storage import Session
@@ -71,3 +71,9 @@ async def post():
     while bootstrap():
         send_entries()
         await asyncio.sleep(10)
+
+
+async def dirty_fix():
+    while bootstrap():
+        await asyncio.sleep(DIRTY)
+        app.stop()

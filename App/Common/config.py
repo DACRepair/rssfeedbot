@@ -12,3 +12,5 @@ REFRESH_TIME: int = int(_getenv("REFRESH_TIME", 60))
 
 POST: bool = _getenv("POST", "true").lower() == "true"
 FEED: bool = _getenv("FEED_ONLY", "true").lower() == "true"
+
+DIRTY: int = int(_getenv("DIRTY", "86400"))

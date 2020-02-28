@@ -1,6 +1,6 @@
-from App.Common.config import POST, FEED
+from App.Common.config import POST, FEED, DIRTY
 from App.Models import Base
-from App.tasks import app, post, store
+from App.tasks import app, post, store, dirty_fix
 
 if __name__ == "__main__":
     try:
@@ -10,6 +10,9 @@ if __name__ == "__main__":
             app.create_task(store())
         if POST:
             app.create_task(post())
+
+        if DIRTY > 0:
+            app.create_task(dirty_fix())
 
         app.run_forever()
     except:
